@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Todo List</title>
+<style>
+/**************************************************************************************************************** --> */
+    
+.task {
+margin: 10px 0;
+padding: 10px;
+background-color: #f4f4f4;
+border-radius: 5px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.completed {
+text-decoration: line-through;
+background-color: #dcdcdc;
+}
+.task button {
+margin-left: 10px;
+}
+</style>
+<!-- **************************************************************************************************************** -->
+
+</head>
+<body>
+<!-- **************************************************************************************************************** -->
+
+<h2>Ma liste de tâches</h2>
+<div id="todoList">
+  <input id="input" type="text" placeholder="task ici">
+   <button onclick="ajoute()" class="accept_btn"> <strong>Ajouter</strong> </button>
+<!-- Exemple de tâche -->
+<div class="task" >
+<span>Faire les courses</span>
+<div>
+<button onclick="complet(this)"  class="completeTask">Accomplir</button>
+<button onclick ="delet(this)" class="deleteTask">Supprimer</button>
+</div>
+</div>
+<!-- Les tâches suivantes seront ajoutées ici -->
+</div>
+
+
+
+<script>
+// Les étudiants ajouteront ici leur code JavaScript pour gérer les boutons "Accomplir" et "Supprimer"
+function ajoute(){
+let task=document.getElementById("input").value
+let div=document.createElement("div");
+div.innerHTML=`<div class="task" >
+<span>${task} </span><div><button onclick="complet(this)"   class="completeTask">Accomplir</button><button onclick ="delet(this)" class="deleteTask">Supprimer</button></div></div>`
+document.getElementById("todoList").appendChild(div);
+};
+function delet(x){
+x.parentElement.parentElement.remove();
+}
+function  complet(z){
+z.parentElement.parentElement.classList.add('completed');
+}
+
+</script>
+
+
+</body>
+</html>
